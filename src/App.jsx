@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './App.css'
 import PasswordGenerator from './components/PasswordGenerator';
@@ -22,6 +22,8 @@ function App() {
     }
     setPassword(pass);
   }, [length, numAllowed, specCharAllowed, setPassword]);
+
+  useEffect(() => {passwordGenerator()},[length, numAllowed, specCharAllowed, passwordGenerator]);
 
   return (
     <>

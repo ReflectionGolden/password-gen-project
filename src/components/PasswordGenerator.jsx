@@ -75,7 +75,7 @@ function PasswordGenerator({length, numAllowed, specCharAllowed, password, setLe
           <button 
             className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
             type="button" 
-            onClick={passwordGenerator}>Generate Password</button>
+            onClick={passwordGenerator}>Generate New Password</button>
         </div>
       </div>
     </div>
