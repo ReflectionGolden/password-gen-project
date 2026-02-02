@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {faCopy} from '@fortawesome/free-regular-svg-icons';
@@ -6,12 +6,16 @@ import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
 
 function PasswordGenerator({length, numAllowed, specCharAllowed, password, setLength, setNumAllowed, setSpecCharAllowed, passwordGenerator}) {
   const [copyIcon,setCopyIcon] = useState(<FontAwesomeIcon icon={faCopy} />);
+  const passInputRef = useRef(null);
 
   function copyPassword() {
+    //select the password text, for visual feedback
+    passInputRef.current?.select();
+
     //copy functionality
     navigator.clipboard.writeText(password);
 
-    //set copy icon to circle check for 2 seconds
+    //set copy icon to circle check for 2 seconds, for visual feedback
     setCopyIcon(<FontAwesomeIcon icon={faCircleCheck} beat style={{color: "#00ff40",}} />);
     setTimeout(() =>{setCopyIcon(<FontAwesomeIcon icon={faCopy} />)},2000);
   }
@@ -32,6 +36,7 @@ function PasswordGenerator({length, numAllowed, specCharAllowed, password, setLe
               type="text"
               placeholder="Your password will appear here"
               value={password}
+              ref={passInputRef}
               readOnly
             />
             <button className="bg-blue-500 hover:bg-blue-700 md:text-2xl py-2 px-4 rounded-r focus:outline-none focus:shadow-outline" onClick={copyPassword}>{copyIcon}</button>
