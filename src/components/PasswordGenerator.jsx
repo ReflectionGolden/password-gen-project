@@ -23,7 +23,9 @@ function PasswordGenerator({length, numAllowed, specCharAllowed, password, setLe
   return(
     <div className="container mx-auto my-8">
       <h1 className="mb-8">Password Generator</h1>
-      <p className="mb-4">Lorem ipsum dolor sit amet.</p>
+      <p className="mb-4">
+        This password generator demonstrates the use of hooks like useCallback and useEffect as well as making use of various inputs to generate a random password and an available button which coppies the entire password to the clipboard with visual feedback so that the user knows both what was copied and that it was copied by making use of JavaScript's ability to write to the clipboard and the useRef hook to set a reference to the password input field.
+      </p>
       <div className="max-w-md mx-auto mb-4 bg-gray-900 rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div className="p-8">
           <label className="block text-sm font-bold mb-2" htmlFor="password">
